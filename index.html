@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -8,28 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        .project-card:hover {
+        /* Removed the hover translateY effect as it interferes with the click-to-expand UI */
+        /* .project-card:hover {
             transform: translateY(-4px);
             transition: all 0.3s ease;
-        }
+        } */
     </style>
 </head>
 
 <body class="bg-white text-slate-900 leading-relaxed">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="font-bold text-xl tracking-tight uppercase">Arjun Bawa</span>
             <div class="space-x-6 text-sm font-medium text-slate-600">
-                <a href="#experience" class="hover:text-indigo-600">Experience</a>
-                <a href="#projects" class="hover:text-indigo-600">Projects</a>
-                <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-indigo-600">Contact</a>
+                <a href="#experience" class="hover:text-indigo-600 transition">Experience</a>
+                <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
+                <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-indigo-600 transition">Contact</a>
             </div>
         </div>
     </nav>
@@ -115,16 +116,9 @@
                             <b>Kubernetes and PySpark</b>.
                         </li>
                     </ul>
-
-
-                </div>
-
-                <div class="relative pl-8 border-l-2 border-slate-200">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-200 rounded-full"></div>
-                    <div class="flex justify-between items-baseline">
-                        <h3 class="text-2xl font-bold text-slate-900 text-slate-400">Data Scientist - BetterUp
-                        </h3>
-                        <span class="text-slate-500 font-medium">Toronto, ON | Jan 2022 - Apr 2022</span>
+                    <div class="flex justify-between items-baseline mb-2 italic text-slate-500">
+                        <span>Data Scientist — BetterUp</span>
+                        <span>Jan 2022 - Apr 2022</span>
                     </div>
                 </div>
 
@@ -144,228 +138,405 @@
                 Technical Projects <span class="h-px bg-slate-200 flex-grow"></span>
             </h2>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">EventStream Analytics</h3>
-                    <p class="text-slate-600 text-sm mb-6">Real-time data pipeline using
-                        FastAPI (SSE), Apache Airflow, and Docker Compose.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Architected a real-time data pipeline to ingest and process synthetic restaurant data
-                            based on events using FastAPI (SSE), Apache Airflow, and standard analytics
-                            data platform architecture.
-                        </li>
-                        <li>• Developed a custom SSE Operator for Airflow to handle high-frequency streaming data,
-                            enabling real-time ingestion into a normalized PostgreSQL schema.</li>
-                        <li>• Orchestrated a multi-service containerized environment using Docker Compose, implementing
-                            health checks and automated recovery procedures for data consistency.</li>
-                        <li>• Implemented database audit triggers and analytics views to track ingestion latency and
-                            data quality across the stack.</li>
-                    </ul>
+            <div class="grid md:grid-cols-2 gap-6">
 
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">FastAPI</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Airflow</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">PostgreSQL</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">EventStream
+                                    Analytics</h3>
+                                <a href="https://github.com/arj1211/restaurant-analytics-stream-stack" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">Real-time data pipeline using FastAPI (SSE),
+                                Apache Airflow, and Docker Compose for high-frequency ingestion.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Architected a real-time data pipeline to ingest and process synthetic restaurant data
+                                based on events using FastAPI (SSE), Apache Airflow, and standard analytics
+                                data platform architecture.
+                            </li>
+                            <li>• Developed a custom SSE Operator for Airflow to handle high-frequency streaming data,
+                                enabling real-time ingestion into a normalized PostgreSQL schema.</li>
+                            <li>• Orchestrated a multi-service containerized environment using Docker Compose,
+                                implementing
+                                health checks and automated recovery procedures for data consistency.</li>
+                            <li>• Implemented database audit triggers and analytics views to track ingestion latency and
+                                data quality across the stack.</li>
+                        </ul>
+
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Airflow</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">PostgreSQL</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">Cluster Links</h3>
-                    <p class="text-slate-600 text-sm mb-6">Automated discovery system grouping unstructured web content
-                        via unsupervised ML and vector similarity.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Engineered an automated discovery system that organizes unstructured web content by
-                            semantically grouping disparate URLs into thematic, navigable clusters.</li>
-                        <li>• Designed a multi-threaded data pipeline that extracts text from various web formats and
-                            applies unsupervised machine learning to group content based on vector similarity.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Python</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">NLP</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Scikit-Learn</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">Cluster Links</h3>
+                                <a href="https://github.com/arj1211/cluster-links" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">Automated discovery system grouping
+                                unstructured web content via unsupervised ML and vector similarity.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Engineered an automated discovery system that organizes unstructured web content by
+                                semantically grouping disparate URLs into thematic, navigable clusters.</li>
+                            <li>• Designed a multi-threaded data pipeline that extracts text from various web formats
+                                and
+                                applies unsupervised machine learning to group content based on vector similarity.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">Python</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Unsupervised ML</span>
+                        <span class="tag">Scikit-Learn</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">Sonic Vision</h3>
-                    <p class="text-slate-600 text-sm mb-6">Real-time object recognition using Core ML and Swift to
-                        convert camera feeds into 3D spatial audio cues.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Built a real-time object recognition system using Swift and Core ML to assist visually
-                            impaired users with spatial awareness by converting live camera feeds into immersive 3D
-                            spatial audio cues.</li>
-                        <li>• Integrated on-device computer vision models with a spatial audio engine to map detected
-                            object coordinates to auditory depth and direction in real-time.</li>
-                        <li>• Integrated AVFoundation to provide 3D spatial audio feedback, mapping object proximity and
-                            orientation to auditory cues.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Swift</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Core
-                            ML</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">AVFoundation</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">Sonic Vision</h3>
+                                <a href="https://github.com/arj1211/SonicVision2" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">Real-time object recognition using Core ML
+                                and Swift to convert live camera feeds into 3D spatial audio cues.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Built a real-time object recognition system using Swift and Core ML to assist visually
+                                impaired users with spatial awareness by converting live camera feeds into immersive 3D
+                                spatial audio cues.</li>
+                            <li>• Integrated on-device computer vision models with a spatial audio engine to map
+                                detected
+                                object coordinates to auditory depth and direction in real-time.</li>
+                            <li>• Integrated AVFoundation to provide 3D spatial audio feedback, mapping object proximity
+                                and
+                                orientation to auditory cues.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">Swift/iOS</span>
+                        <span class="tag">Core ML</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">AVFoundation</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">NeuroEvo Sim</h3>
-                    <p class="text-slate-600 text-sm mb-6">Ecosystem simulation where agents evolve survival behaviors
-                        using the NEAT algorithm.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Designed a simulated ecosystem where autonomous agents evolve survival behaviors using
-                            NeuroEvolution of Augmenting Topologies (NEAT).</li>
-                        <li>• Engineered a sensory input system (Distance-to-food, obstacle proximity) and complex
-                            fitness
-                            functions to drive the evolution of obstacle avoidance and resource gathering.</li>
-                        <li>• Simulated agent-based game-theoretic strategies by tweaking environmental parameters in
-                            real-time to observe population dynamics and neural network convergence.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">NEAT</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Neural
-                            Networks</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Simulation</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">NeuroEvo Sim</h3>
+                                <a href="https://github.com/arj1211/neuroevosim" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">Ecosystem simulation where autonomous agents
+                                evolve survival behaviors using the NEAT algorithm.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Designed a simulated ecosystem where autonomous agents evolve survival behaviors using
+                                NeuroEvolution of Augmenting Topologies (NEAT).</li>
+                            <li>• Engineered a sensory input system (Distance-to-food, obstacle proximity) and complex
+                                fitness
+                                functions to drive the evolution of obstacle avoidance and resource gathering.</li>
+                            <li>• Simulated agent-based game-theoretic strategies by tweaking environmental parameters
+                                in
+                                real-time to observe population dynamics and neural network convergence.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">Python</span>
+                        <span class="tag">NEAT Algorithm</span>
+                        <span class="tag">Neural Networks</span>
+                        <span class="tag">Simulation</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">CTL Compiler</h3>
-                    <p class="text-slate-600 text-sm mb-6"><i>Collection Transformation Language</i>, A domain-specific
-                        language in C with a custom lexical
-                        analyzer and recursive-descent parser.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Architected a domain-specific language (DSL) in C designed for efficient numerical
-                            collection transformations and pipeline-based data processing.</li>
-                        <li>• Built a complete language frontend in a systems-level language, including a custom lexical
-                            analyzer, recursive-descent parser, and an abstract syntax tree evaluator.</li>
-                        <li>• Engineered an evaluator with environment management to support functional operations like
-                            <code>Map</code>, <code>Filter</code>, and <code>Expand</code> within the DSL.
-                        </li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">C</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Compilers</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">AST</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">CTL Compiler</h3>
+                                <a href="https://github.com/arj1211/ctl" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">A domain-specific language (DSL) in C
+                                designed for efficient numerical collection transformations.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Architected a domain-specific language (DSL) in C designed for efficient numerical
+                                collection transformations and pipeline-based data processing.</li>
+                            <li>• Built a complete language frontend in a systems-level language, including a custom
+                                lexical
+                                analyzer, recursive-descent parser, and an abstract syntax tree evaluator.</li>
+                            <li>• Engineered an evaluator with environment management to support functional operations
+                                like
+                                <code>Map</code>, <code>Filter</code>, and <code>Expand</code> within the DSL.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">C Language</span>
+                        <span class="tag">Compiler Design</span>
+                        <span class="tag">DSL</span>
+                        <span class="tag">AST</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">FileCrypto</h3>
-                    <p class="text-slate-600 text-sm mb-6">Secure file encryption utility featuring chunk-based
-                        processing and automatic key management.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Developed a secure file encryption utility that ensures data confidentiality and integrity
-                            through authenticated encryption and automatic key management.</li>
-                        <li>• Optimized for large files using chunk-based processing, preventing memory exhaustion while
-                            maintaining high throughput for encryption/decryption tasks.</li>
-                        <li>• Implemented automatic key management and tampering detection, ensuring immediate rejection
-                            of corrupted or modified data.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Cryptography</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Security</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Systems</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">FileCrypto</h3>
+                                <a href="https://github.com/arj1211/FileCrypto" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">Secure file encryption utility featuring
+                                chunk-based processing for memory efficiency and automatic key management.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Developed a secure file encryption utility that ensures data confidentiality and
+                                integrity
+                                through authenticated encryption and automatic key management.</li>
+                            <li>• Optimized for large files using chunk-based processing, preventing memory exhaustion
+                                while
+                                maintaining high throughput for encryption/decryption tasks.</li>
+                            <li>• Implemented automatic key management and tampering detection, ensuring immediate
+                                rejection
+                                of corrupted or modified data.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Diffie-Hellman</span>
+                        <span class="tag">Encryption</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">Apple Health Wrapped</h3>
-                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Developed a personalized data visualization platform that transforms native HealthKit
-                            activity metrics into an engaging, "year-in-review" fitness summary for users.</li>
-                        <li>• Built a full-stack application leveraging a backend-as-a-service architecture to securely
-                            aggregate, store, and process real-time health telemetry from mobile devices.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Data
-                            Visualization</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">HealthKit</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Mobile
-                            Telemetry</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">Apple Health
+                                    Wrapped</h3>
+                                <a href="https://github.com/ahnafazzard/health_wrapped" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">A full-stack visualization platform
+                                transforming raw HealthKit telemetry into engaging, personalized fitness summaries.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Developed a personalized data visualization platform that transforms native HealthKit
+                                activity metrics into an engaging, "year-in-review" fitness summary for users.</li>
+                            <li>• Built a full-stack application leveraging a backend-as-a-service architecture to
+                                securely
+                                aggregate, store, and process real-time health telemetry from mobile devices.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">Full Stack</span>
+                        <span class="tag">iOS/Swift</span>
+                        <span class="tag">HealthKit</span>
+                        <span class="tag">Data Visualization</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">Spatial Median Noise Removal</h3>
-                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Enhanced digital image restoration techniques based on IEEE research by implementing a
-                            suite of spatial filters designed to remove impulse noise while preserving sharp edge
-                            details.</li>
-                        <li>• Developed a signal processing framework and a statistical benchmarking suite to quantify
-                            noise reduction performance across varying levels of data distortion.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Signal
-                            Processing</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">MATLAB</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Statistical
-                            Methods</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">Spatial Noise
+                                    Removal</h3>
+                                <a href="https://github.com/arj1211/spatial-median-noise-removal" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">An IEEE-research-based signal processing
+                                framework for restoring digital images damaged by impulse noise.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Enhanced digital image restoration techniques based on IEEE research by implementing a
+                                suite of spatial filters designed to remove impulse noise while preserving sharp edge
+                                details.</li>
+                            <li>• Developed a signal processing framework and a statistical benchmarking suite to
+                                quantify
+                                noise reduction performance across varying levels of data distortion.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">DSP (Signal Processing)</span>
+                        <span class="tag">Image Restoration</span>
+                        <span class="tag">Statistical Analysis</span>
                     </div>
                 </div>
 
-                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
-                    <h3 class="text-xl font-bold mb-3">Calendar Manager</h3>
-                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
-                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
-                        <li>• Streamlined enterprise scheduling workflows by automating the bulk management and
-                            synchronization of complex, recurring calendar events via a command-line interface.</li>
-                        <li>• Orchestrated secure interactions with cloud-based productivity APIs to perform mass event
-                            creation and data reconciliation across multiple user accounts.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">CLI</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Cloud</span>
-                        <span
-                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Calendar</span>
+                <div
+                    class="rounded-2xl border border-slate-200 bg-white overflow-hidden project-card transition-all duration-300 hover:shadow-md">
+                    <div class="p-6 cursor-pointer flex justify-between items-start group"
+                        onclick="toggleProject(this)">
+                        <div class="pr-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-lg font-bold group-hover:text-indigo-600 transition">Calendar Manager
+                                </h3>
+                                <a href="https://github.com/arj1211/gcal_edit" target="_blank"
+                                    class="text-slate-400 hover:text-indigo-600 text-sm"
+                                    onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-snug">A CLI tool for automating enterprise
+                                scheduling workflows, handling bulk synchronization via cloud APIs.</p>
+                        </div>
+                        <div
+                            class="text-slate-400 mt-1 transition-transform duration-300 transform rotate-0 chevron-icon">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 hidden project-details">
+                        <hr class="mb-4 border-slate-100">
+                        <ul class="text-slate-500 text-sm mb-6 space-y-3">
+                            <li>• Streamlined enterprise scheduling workflows by automating the bulk management and
+                                synchronization of complex, recurring calendar events via a command-line interface.</li>
+                            <li>• Orchestrated secure interactions with cloud-based productivity APIs to perform mass
+                                event
+                                creation and data reconciliation across multiple user accounts.</li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6 project-details gap-2">
+                        <span class="tag">CLI Tool</span>
+                        <span class="tag">API Integration</span>
+                        <span class="tag">Workflow Automation</span>
                     </div>
                 </div>
 
             </div>
-
-            <!-- <p class="mt-12 text-center text-slate-500 text-sm italic">
-                Additional projects including Apple Health Wrapped, Spatial Median Noise Removal, and Calendar Manager
-                available on request.
-            </p> -->
         </section>
     </main>
 
     <footer class="border-t border-slate-100 py-20 text-center">
         <p class="text-slate-400 text-sm mb-4 italic">"Solving complex data problems with elegant code."</p>
         <div class="flex justify-center gap-6 mb-8 text-slate-400">
-            <a href="https://github.com/arj1211" class="hover:text-slate-900"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-slate-900"><i
+            <a href="https://github.com/arj1211" class="hover:text-slate-900 transition"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-slate-900 transition"><i
                     class="fab fa-linkedin"></i></a>
         </div>
         <p class="text-slate-400 text-xs uppercase tracking-widest">&copy; 2025 Arjun Bawa</p>
     </footer>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .tag {
+                @apply text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-1 rounded-md;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleProject(element) {
+            // Find the details container (the next sibling element)
+            const details = element.nextElementSibling;
+            // Find the chevron icon inside the clicked element
+            const chevron = element.querySelector('.chevron-icon');
+
+            // Toggle visibility
+            details.classList.toggle('hidden');
+
+            // Rotate chevron
+            chevron.classList.toggle('rotate-180');
+        }
+    </script>
 
 </body>
 
