@@ -147,8 +147,21 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
                     <h3 class="text-xl font-bold mb-3">EventStream Analytics</h3>
-                    <p class="text-slate-600 text-sm mb-6">Real-time data pipeline for synthetic restaurant data using
+                    <p class="text-slate-600 text-sm mb-6">Real-time data pipeline using
                         FastAPI (SSE), Apache Airflow, and Docker Compose.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Architected a real-time data pipeline to ingest and process synthetic restaurant data
+                            based on events using FastAPI (SSE), Apache Airflow, and standard analytics
+                            data platform architecture.
+                        </li>
+                        <li>• Developed a custom SSE Operator for Airflow to handle high-frequency streaming data,
+                            enabling real-time ingestion into a normalized PostgreSQL schema.</li>
+                        <li>• Orchestrated a multi-service containerized environment using Docker Compose, implementing
+                            health checks and automated recovery procedures for data consistency.</li>
+                        <li>• Implemented database audit triggers and analytics views to track ingestion latency and
+                            data quality across the stack.</li>
+                    </ul>
+
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">FastAPI</span>
@@ -163,6 +176,12 @@
                     <h3 class="text-xl font-bold mb-3">Cluster Links</h3>
                     <p class="text-slate-600 text-sm mb-6">Automated discovery system grouping unstructured web content
                         via unsupervised ML and vector similarity.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Engineered an automated discovery system that organizes unstructured web content by
+                            semantically grouping disparate URLs into thematic, navigable clusters.</li>
+                        <li>• Designed a multi-threaded data pipeline that extracts text from various web formats and
+                            applies unsupervised machine learning to group content based on vector similarity.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Python</span>
@@ -177,6 +196,15 @@
                     <h3 class="text-xl font-bold mb-3">Sonic Vision</h3>
                     <p class="text-slate-600 text-sm mb-6">Real-time object recognition using Core ML and Swift to
                         convert camera feeds into 3D spatial audio cues.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Built a real-time object recognition system using Swift and Core ML to assist visually
+                            impaired users with spatial awareness by converting live camera feeds into immersive 3D
+                            spatial audio cues.</li>
+                        <li>• Integrated on-device computer vision models with a spatial audio engine to map detected
+                            object coordinates to auditory depth and direction in real-time.</li>
+                        <li>• Integrated AVFoundation to provide 3D spatial audio feedback, mapping object proximity and
+                            orientation to auditory cues.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Swift</span>
@@ -192,6 +220,15 @@
                     <h3 class="text-xl font-bold mb-3">NeuroEvo Sim</h3>
                     <p class="text-slate-600 text-sm mb-6">Ecosystem simulation where agents evolve survival behaviors
                         using the NEAT algorithm.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Designed a simulated ecosystem where autonomous agents evolve survival behaviors using
+                            NeuroEvolution of Augmenting Topologies (NEAT).</li>
+                        <li>• Engineered a sensory input system (Distance-to-food, obstacle proximity) and complex
+                            fitness
+                            functions to drive the evolution of obstacle avoidance and resource gathering.</li>
+                        <li>• Simulated agent-based game-theoretic strategies by tweaking environmental parameters in
+                            real-time to observe population dynamics and neural network convergence.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">NEAT</span>
@@ -205,8 +242,18 @@
 
                 <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
                     <h3 class="text-xl font-bold mb-3">CTL Compiler</h3>
-                    <p class="text-slate-600 text-sm mb-6">A domain-specific language in C with a custom lexical
+                    <p class="text-slate-600 text-sm mb-6"><i>Collection Transformation Language</i>, A domain-specific
+                        language in C with a custom lexical
                         analyzer and recursive-descent parser.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Architected a domain-specific language (DSL) in C designed for efficient numerical
+                            collection transformations and pipeline-based data processing.</li>
+                        <li>• Built a complete language frontend in a systems-level language, including a custom lexical
+                            analyzer, recursive-descent parser, and an abstract syntax tree evaluator.</li>
+                        <li>• Engineered an evaluator with environment management to support functional operations like
+                            <code>Map</code>, <code>Filter</code>, and <code>Expand</code> within the DSL.
+                        </li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">C</span>
@@ -221,6 +268,14 @@
                     <h3 class="text-xl font-bold mb-3">FileCrypto</h3>
                     <p class="text-slate-600 text-sm mb-6">Secure file encryption utility featuring chunk-based
                         processing and automatic key management.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Developed a secure file encryption utility that ensures data confidentiality and integrity
+                            through authenticated encryption and automatic key management.</li>
+                        <li>• Optimized for large files using chunk-based processing, preventing memory exhaustion while
+                            maintaining high throughput for encryption/decryption tasks.</li>
+                        <li>• Implemented automatic key management and tampering detection, ensuring immediate rejection
+                            of corrupted or modified data.</li>
+                    </ul>
                     <div class="flex flex-wrap gap-2">
                         <span
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Cryptography</span>
@@ -230,12 +285,75 @@
                             class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Systems</span>
                     </div>
                 </div>
+
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">Apple Health Wrapped</h3>
+                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Developed a personalized data visualization platform that transforms native HealthKit
+                            activity metrics into an engaging, "year-in-review" fitness summary for users.</li>
+                        <li>• Built a full-stack application leveraging a backend-as-a-service architecture to securely
+                            aggregate, store, and process real-time health telemetry from mobile devices.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Data
+                            Visualization</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">HealthKit</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Mobile
+                            Telemetry</span>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">Spatial Median Noise Removal</h3>
+                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Enhanced digital image restoration techniques based on IEEE research by implementing a
+                            suite of spatial filters designed to remove impulse noise while preserving sharp edge
+                            details.</li>
+                        <li>• Developed a signal processing framework and a statistical benchmarking suite to quantify
+                            noise reduction performance across varying levels of data distortion.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Signal
+                            Processing</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">MATLAB</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Statistical
+                            Methods</span>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">Calendar Manager</h3>
+                    <p class="text-slate-600 text-sm mb-6">Somethingsomething.</p>
+                    <ul class="text-slate-500 text-sm mb-6 space-y-2">
+                        <li>• Streamlined enterprise scheduling workflows by automating the bulk management and
+                            synchronization of complex, recurring calendar events via a command-line interface.</li>
+                        <li>• Orchestrated secure interactions with cloud-based productivity APIs to perform mass event
+                            creation and data reconciliation across multiple user accounts.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">CLI</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Cloud</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Calendar</span>
+                    </div>
+                </div>
+
             </div>
 
-            <p class="mt-12 text-center text-slate-500 text-sm italic">
+            <!-- <p class="mt-12 text-center text-slate-500 text-sm italic">
                 Additional projects including Apple Health Wrapped, Spatial Median Noise Removal, and Calendar Manager
                 available on request.
-            </p>
+            </p> -->
         </section>
     </main>
 
