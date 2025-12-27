@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,96 +8,247 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .gradient-text { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans">
 
-    <header class="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h1 class="text-5xl font-extrabold mb-4">Arjun Bawa</h1>
-        <p class="text-2xl text-slate-600 mb-6">AI Solutions Engineer @ <span class="text-red-600 font-semibold">PwC</span></p>
-        <div class="flex justify-center gap-4 text-2xl">
-            <a href="https://github.com/arj1211" class="hover:text-indigo-600"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/arjunbawa/" class="hover:text-indigo-600"><i class="fab fa-linkedin"></i></a>
+<body class="bg-white text-slate-900 leading-relaxed">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-bold text-xl tracking-tight uppercase">Arjun Bawa</span>
+            <div class="space-x-6 text-sm font-medium text-slate-600">
+                <a href="#experience" class="hover:text-indigo-600">Experience</a>
+                <a href="#projects" class="hover:text-indigo-600">Projects</a>
+                <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-indigo-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-5xl mx-auto px-6 py-24">
+        <h1 class="text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+            Building the future of <span class="text-indigo-600">Agentic AI</span> & Data Systems.
+        </h1>
+        <p class="text-xl text-slate-600 max-w-2xl mb-8">
+            AI Solutions Engineer at PwC. Specializing in Generative AI orchestration, real-time ETL pipelines, and
+            high-performance machine learning infrastructure.
+        </p>
+        <div class="flex gap-4">
+            <a href="https://github.com/arj1211"
+                class="bg-slate-900 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-slate-800 transition">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/arjunbawa/"
+                class="border border-slate-200 px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-slate-50 transition">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-6">
-        
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 border-b-2 border-indigo-500 inline-block">Experience</h2>
-            
-            <div class="space-y-12">
-                <div class="border-l-4 border-indigo-500 pl-6">
-                    <h3 class="text-xl font-bold">AI Solutions Engineer — PwC</h3>
-                    <p class="text-slate-500 mb-4">Sep 2024 - Present</p>
-                    <ul class="list-disc ml-5 space-y-2 text-slate-700">
-                        <li>Architected GenAI evaluation frameworks using <b>LangSmith</b> and <b>LangFuse</b> for enterprise LLM safety.</li>
-                        <li>Built multi-agent systems with <b>LangGraph</b>, reducing audit validation time by 40%.</li>
-                        <li>Operationalized agentic ecosystems via <b>Model Context Protocol (MCP)</b>.</li>
+
+        <section id="experience" class="py-12">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                Work Experience <span class="h-px bg-slate-200 flex-grow"></span>
+            </h2>
+
+            <div class="space-y-16">
+                <div class="relative pl-8 border-l-2 border-indigo-600">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
+                    <div class="flex flex-wrap justify-between items-baseline mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">AI Solutions Engineer - PwC</h3>
+                        <span class="text-slate-500 font-medium">Toronto, ON | Sep 2024 - Present</span>
+                    </div>
+                    <ul class="space-y-4 text-slate-700">
+                        <li>• Architected a production-grade <b>Generative AI evaluation framework</b> using LangSmith
+                            and LangFuse to implement automated regression testing and real-time observability.</li>
+                        <li>• Engineered a <b>multi-agent orchestration system</b> with LangGraph to automate complex
+                            audit validation workflows, resulting in a 40% reduction in manual document review.</li>
+                        <li>• Operationalized a self-service agentic ecosystem leveraging the <b>Model Context Protocol
+                                (MCP)</b> for dynamic interfacing with SAP, Salesforce, and SQL warehouses.</li>
+                        <li>• Developed <b>Agentic RAG systems</b> utilizing vector-based hybrid search and semantic
+                            re-ranking for grounded, citeable insights from millions of documents.</li>
+                        <li>• Migrated legacy ETL pipelines to <b>Databricks Lakeflow</b>, using Unity Catalog to
+                            enforce fine-grained access control and end-to-end lineage.</li>
                     </ul>
                 </div>
 
-                <div class="border-l-4 border-slate-300 pl-6">
-                    <h3 class="text-xl font-bold">Data Engineer — Brock Solutions</h3>
-                    <p class="text-slate-500 mb-4">Sep 2023 - Sep 2024</p>
-                    <ul class="list-disc ml-5 space-y-2 text-slate-700">
-                        <li>Built real-time ETL pipelines using <b>Spark Structured Streaming</b> for airport logistics.</li>
-                        <li>Increased pipeline speed by 5x using <b>CDC</b> and micro-batching in a Medallion architecture.</li>
+                <div class="relative pl-8 border-l-2 border-slate-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-200 rounded-full"></div>
+                    <div class="flex flex-wrap justify-between items-baseline mb-4">
+                        <h3 class="text-2xl font-bold text-slate-900">Data Engineer - Brock Solutions</h3>
+                        <span class="text-slate-500 font-medium">Kitchener, ON | Sep 2023 - Sep 2024</span>
+                    </div>
+                    <ul class="space-y-4 text-slate-700">
+                        <li>• Architected a real-time baggage tracking pipeline using <b>Spark Structured Streaming</b>,
+                            significantly reducing lost luggage for airline customers.</li>
+                        <li>• Achieved a <b>5x increase in pipeline speed</b> by implementing incremental refreshes via
+                            Change Data Capture (CDC) and micro-batching.</li>
+                        <li>• Optimized cloud compute costs by offloading extraction to a <b>containerized Flask API</b>
+                            and designing idempotent Spark transformations.</li>
+                        <li>• Integrated <b>Pydantic and Great Expectations</b> within a Medallion Lakehouse
+                            architecture to ensure system robustness against schema drift.</li>
                     </ul>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-200 rounded-full"></div>
+                    <div class="flex flex-wrap justify-between items-baseline mb-2">
+                        <h3 class="text-2xl font-bold text-slate-900">Machine Learning Engineer - BetterUp</h3>
+                        <span class="text-slate-500 font-medium">San Francisco, CA | Sep 2022 - Dec 2022</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-700 mb-6">
+                        <li>• Engineered a serverless recommendation service using <b>AWS Fargate and Batch</b> for
+                            ranking and similarity-matching algorithms.</li>
+                        <li>• Reduced model cold-start latency by <b>92%</b> via high-performance caching for
+                            transformer models using AWS EFS.</li>
+                        <li>• Developed automated NLP preprocessing pipelines on a distributed infrastructure built on
+                            <b>Kubernetes and PySpark</b>.
+                        </li>
+                    </ul>
+
+
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-200 rounded-full"></div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-2xl font-bold text-slate-900 text-slate-400">Data Scientist - BetterUp
+                        </h3>
+                        <span class="text-slate-500 font-medium">Toronto, ON | Jan 2022 - Apr 2022</span>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-slate-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-200 rounded-full"></div>
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-2xl font-bold text-slate-900 text-slate-400">Data Scientist - Woodbridge Group
+                        </h3>
+                        <span class="text-slate-500 font-medium">Toronto, ON | May 2021 - Aug 2021</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 border-b-2 border-indigo-500 inline-block">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card">
-                    <h3 class="text-xl font-bold mb-2">EventStream Analytics</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Real-time data pipeline using FastAPI, Airflow, and PostgreSQL for high-frequency streaming.</p>
-                    <div class="flex flex-wrap gap-2 mb-4 text-xs font-mono uppercase">
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Airflow</span>
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Docker</span>
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">PostgreSQL</span>
+        <section id="projects" class="py-24">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                Technical Projects <span class="h-px bg-slate-200 flex-grow"></span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">EventStream Analytics</h3>
+                    <p class="text-slate-600 text-sm mb-6">Real-time data pipeline for synthetic restaurant data using
+                        FastAPI (SSE), Apache Airflow, and Docker Compose.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">FastAPI</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Airflow</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">PostgreSQL</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card">
-                    <h3 class="text-xl font-bold mb-2">Sonic Vision</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Spatial audio assistance for visually impaired users using Core ML and 3D audio cues.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono uppercase">
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Swift</span>
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Core ML</span>
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">Cluster Links</h3>
+                    <p class="text-slate-600 text-sm mb-6">Automated discovery system grouping unstructured web content
+                        via unsupervised ML and vector similarity.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Python</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">NLP</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Scikit-Learn</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card">
-                    <h3 class="text-xl font-bold mb-2">NeuroEvo Sim</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Evolutionary ecosystem simulation using NEAT to evolve autonomous agent behaviors.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono uppercase">
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Python</span>
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Neural Networks</span>
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">Sonic Vision</h3>
+                    <p class="text-slate-600 text-sm mb-6">Real-time object recognition using Core ML and Swift to
+                        convert camera feeds into 3D spatial audio cues.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Swift</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Core
+                            ML</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">AVFoundation</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 card">
-                    <h3 class="text-xl font-bold mb-2">CTL Compiler</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Domain-specific language in C for efficient numerical collection transformations.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono uppercase">
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">C</span>
-                        <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Compilers</span>
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">NeuroEvo Sim</h3>
+                    <p class="text-slate-600 text-sm mb-6">Ecosystem simulation where agents evolve survival behaviors
+                        using the NEAT algorithm.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">NEAT</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Neural
+                            Networks</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Simulation</span>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">CTL Compiler</h3>
+                    <p class="text-slate-600 text-sm mb-6">A domain-specific language in C with a custom lexical
+                        analyzer and recursive-descent parser.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">C</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Compilers</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">AST</span>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl border border-slate-100 bg-slate-50 project-card">
+                    <h3 class="text-xl font-bold mb-3">FileCrypto</h3>
+                    <p class="text-slate-600 text-sm mb-6">Secure file encryption utility featuring chunk-based
+                        processing and automatic key management.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Cryptography</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Security</span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-wider bg-white px-2 py-1 rounded shadow-sm">Systems</span>
                     </div>
                 </div>
             </div>
-        </section>
 
+            <p class="mt-12 text-center text-slate-500 text-sm italic">
+                Additional projects including Apple Health Wrapped, Spatial Median Noise Removal, and Calendar Manager
+                available on request.
+            </p>
+        </section>
     </main>
 
-    <footer class="py-10 text-center text-slate-400 text-sm">
-        &copy; 2025 Arjun Bawa. Built with Tailwind CSS and Hosted on GitHub Pages.
+    <footer class="border-t border-slate-100 py-20 text-center">
+        <p class="text-slate-400 text-sm mb-4 italic">"Solving complex data problems with elegant code."</p>
+        <div class="flex justify-center gap-6 mb-8 text-slate-400">
+            <a href="https://github.com/arj1211" class="hover:text-slate-900"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/arjunbawa/" class="hover:text-slate-900"><i
+                    class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="text-slate-400 text-xs uppercase tracking-widest">&copy; 2025 Arjun Bawa</p>
     </footer>
 
 </body>
+
 </html>
